@@ -18,6 +18,7 @@
     <meta property="og:description" content="SC Kimlik ve Sunday AI Altyapısı ile Güçlendirildi. Yarının teknolojilerini bugünden inşa ediyoruz.">
     <meta property="og:image" content="https://www.serup.com.tr/assets/og-image.jpg">
 
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -101,17 +102,10 @@
         }
 
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            width: 36px;
+            height: 36px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.75rem;
-            color: white;
-            letter-spacing: -0.5px;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -670,6 +664,263 @@
             transform: rotate(180deg);
         }
 
+        /* === SAYAÇLAR === */
+        .stats-section {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 20px;
+            background: var(--bg-card);
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-number .stat-suffix {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        /* === ROADMAP === */
+        .roadmap-section {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
+        .roadmap-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+        }
+
+        .roadmap-dot.done {
+            background: #4ade80;
+            box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+        }
+
+        .roadmap-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(124, 92, 252, 0.4);
+            animation: pulse-dot 2s infinite;
+        }
+
+        .roadmap-dot.upcoming {
+            background: var(--text-dim);
+        }
+
+        .roadmap-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-light);
+            margin-bottom: 4px;
+        }
+
+        .roadmap-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 4px;
+        }
+
+        .roadmap-desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* === CHANGELOG === */
+        .changelog-section {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .changelog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .changelog-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            transition: border-color 0.3s;
+        }
+
+        .changelog-entry:hover {
+            border-color: var(--border-hover);
+        }
+
+        .changelog-badge {
+            flex-shrink: 0;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 2px;
+        }
+
+        .changelog-badge.new {
+            background: rgba(74, 222, 128, 0.12);
+            color: #4ade80;
+        }
+
+        .changelog-badge.update {
+            background: rgba(124, 92, 252, 0.12);
+            color: var(--accent-light);
+        }
+
+        .changelog-badge.fix {
+            background: rgba(251, 191, 36, 0.12);
+            color: #fbbf24;
+        }
+
+        .changelog-text h4 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 2px;
+        }
+
+        .changelog-text span {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        /* === YUKARI ÇIK BUTONU === */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(124, 92, 252, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
         /* === FOOTER === */
         footer {
             position: relative;
@@ -916,7 +1167,7 @@
 
     <nav id="mainNav">
         <a class="logo" href="#home">
-            <div class="logo-icon">SU</div>
+            <img src="logo.jpg" alt="SerUP Logo" class="logo-icon">
             <span class="logo-text">SerUP</span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
@@ -927,6 +1178,7 @@
             <li><a href="#projects">Servisler</a></li>
             <li><a href="#sscore">SSCore</a></li>
             <li><a href="#sunday">SUNDAY</a></li>
+            <li><a href="#roadmap">Yol Haritası</a></li>
             <li><a href="#faq">SSS</a></li>
             <li><a href="https://github.com/suleyman2180" target="_blank"><i class="fab fa-github"></i></a></li>
             <!-- 2. Üst Kısma CTA (SC Kimlik Girişi) -->
@@ -992,6 +1244,28 @@
         </div>
     </div>
 
+    <!-- SAYAÇLAR -->
+    <div class="stats-section">
+        <div class="stats-grid reveal">
+            <div class="stat-item">
+                <div class="stat-number"><span data-target="3">0</span><span class="stat-suffix">+</span></div>
+                <div class="stat-label">Aktif Proje</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><span data-target="500">0</span><span class="stat-suffix">+</span></div>
+                <div class="stat-label">Kullanıcı</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">v<span data-target="0" data-decimal="6">0</span></div>
+                <div class="stat-label">SSCore Sürüm</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><span data-target="7">0</span><span class="stat-suffix">/24</span></div>
+                <div class="stat-label">Aktif Geliştirme</div>
+            </div>
+        </div>
+    </div>
+
     <!-- SSCore İşletim Sistemi -->
     <div class="showcase" id="sscore">
         <div class="showcase-card sscore-card reveal">
@@ -1032,6 +1306,78 @@
                 </div>
             </div>
             <div class="bg-icon"><i class="fas fa-brain"></i></div>
+        </div>
+    </div>
+
+    <!-- YOL HARİTASI -->
+    <div class="roadmap-section" id="roadmap">
+        <div class="section-label reveal" style="justify-content: center; width: 100%; display: flex;"><i class="fas fa-road"></i> YOL HARİTASI</div>
+        <h2 class="section-title reveal" style="text-align: center;">2026 Planımız</h2>
+        <p class="section-desc reveal" style="text-align: center; margin: 0 auto 48px;">Ekosistemi büyütmeye devam ediyoruz.</p>
+
+        <div class="roadmap-timeline">
+            <div class="roadmap-item reveal">
+                <div class="roadmap-dot done"></div>
+                <div class="roadmap-date">Q1 2026</div>
+                <div class="roadmap-title">Sunday AI Web & Mobil Lansmanı</div>
+                <div class="roadmap-desc">Sunday AI hem web hem Android platformunda kullanıma açıldı.</div>
+            </div>
+            <div class="roadmap-item reveal">
+                <div class="roadmap-dot done"></div>
+                <div class="roadmap-date">Q2 2026</div>
+                <div class="roadmap-title">SSCore v0.6 Yayınlandı</div>
+                <div class="roadmap-desc">Geliştiricilere özel analiz araçları ve masaüstü özelleştirmeleri eklendi.</div>
+            </div>
+            <div class="roadmap-item reveal">
+                <div class="roadmap-dot active"></div>
+                <div class="roadmap-date">Q3 2026</div>
+                <div class="roadmap-title">SC Kimlik Tam Entegrasyon</div>
+                <div class="roadmap-desc">Tüm SerUP ürünleri tek hesap altyapısına geçiyor.</div>
+            </div>
+            <div class="roadmap-item reveal">
+                <div class="roadmap-dot upcoming"></div>
+                <div class="roadmap-date">Q4 2026</div>
+                <div class="roadmap-title">Sunday AI v2 & API Erişimi</div>
+                <div class="roadmap-desc">Geliştiricilere açık API, sesli komut iyileştirmeleri ve yeni modüller.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GÜNCELLEMELER / CHANGELOG -->
+    <div class="changelog-section">
+        <div class="section-label reveal" style="justify-content: center; width: 100%; display: flex;"><i class="fas fa-bolt"></i> GÜNCELLEMELER</div>
+        <h2 class="section-title reveal" style="text-align: center;">Son Değişiklikler</h2>
+        <p class="section-desc reveal" style="text-align: center; margin: 0 auto 48px;">Ekosistemimizdeki son gelişmeler.</p>
+
+        <div class="changelog-list">
+            <div class="changelog-entry reveal">
+                <span class="changelog-badge new">Yeni</span>
+                <div class="changelog-text">
+                    <h4>SC Kimlik sistemi yayına alındı</h4>
+                    <span>Merkezi kimlik doğrulama aktif</span>
+                </div>
+            </div>
+            <div class="changelog-entry reveal">
+                <span class="changelog-badge update">Güncelleme</span>
+                <div class="changelog-text">
+                    <h4>SSCore v0.6 çıktı</h4>
+                    <span>Yeni analiz araçları ve IDE iyileştirmeleri</span>
+                </div>
+            </div>
+            <div class="changelog-entry reveal">
+                <span class="changelog-badge new">Yeni</span>
+                <div class="changelog-text">
+                    <h4>Sunday AI Android uygulaması eklendi</h4>
+                    <span>Mobil asistan olarak APK ile indirilebilir</span>
+                </div>
+            </div>
+            <div class="changelog-entry reveal">
+                <span class="changelog-badge fix">Düzeltme</span>
+                <div class="changelog-text">
+                    <h4>Sunday AI yanıt hızı iyileştirildi</h4>
+                    <span>Performans optimizasyonları uygulandı</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1116,6 +1462,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Yukarı Çık Butonu -->
+    <button class="back-to-top" id="backToTop" aria-label="Yukarı Çık">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // === CANVAS PARÇACIK ARKAPlan ===
@@ -1269,6 +1620,70 @@
         window.addEventListener('click', (e) => {
             if (e.target === modal) modal.style.display = 'none';
         });
+
+        // === YUKARI ÇIK BUTONU VE SCROLL KONTROLÜ ===
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // === SAYAÇ ANİMASYONU ===
+        const statCounters = document.querySelectorAll('.stat-number [data-target]');
+        let animatedStats = false;
+
+        function runCounters() {
+            statCounters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const decimal = counter.getAttribute('data-decimal');
+                const duration = 1500;
+                const startTime = performance.now();
+
+                function updateCount(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // easeOutQuad
+                    const ease = 1 - (1 - progress) * (1 - progress);
+                    const currentVal = Math.floor(ease * target);
+                    
+                    if (decimal) {
+                        counter.textContent = currentVal + '.' + decimal;
+                    } else {
+                        counter.textContent = currentVal;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.textContent = decimal ? (target + '.' + decimal) : target;
+                    }
+                }
+                requestAnimationFrame(updateCount);
+            });
+        }
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animatedStats) {
+                        animatedStats = true;
+                        runCounters();
+                    }
+                });
+            }, { threshold: 0.3 });
+            statsObserver.observe(statsSection);
+        }
     </script>
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
