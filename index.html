@@ -828,6 +828,104 @@
             border-color: var(--border-hover);
         }
 
+        .changelog-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .changelog-meta {
+            margin-left: auto;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* GitHub Repositories Grid */
+        .github-repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .repo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .repo-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .repo-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .repo-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .repo-name i {
+            color: var(--accent-light);
+            font-size: 0.95rem;
+        }
+
+        .repo-desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .repo-footer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+        }
+
+        .repo-lang {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-light);
+        }
+
         .changelog-badge {
             flex-shrink: 0;
             font-size: 0.65rem;
@@ -1179,6 +1277,8 @@
             <li><a href="#sscore">SSCore</a></li>
             <li><a href="#sunday">SUNDAY</a></li>
             <li><a href="#roadmap">Yol Haritası</a></li>
+            <li><a href="#github-projects">Projeler</a></li>
+            <li><a href="#updates">Güncellemeler</a></li>
             <li><a href="#faq">SSS</a></li>
             <li><a href="https://github.com/suleyman2180" target="_blank"><i class="fab fa-github"></i></a></li>
             <!-- 2. Üst Kısma CTA (SC Kimlik Girişi) -->
@@ -1248,8 +1348,8 @@
     <div class="stats-section">
         <div class="stats-grid reveal">
             <div class="stat-item">
-                <div class="stat-number"><span data-target="3">0</span><span class="stat-suffix">+</span></div>
-                <div class="stat-label">Aktif Proje</div>
+                <div class="stat-number"><span data-target="12" id="statRepoCount">12</span><span class="stat-suffix">+</span></div>
+                <div class="stat-label">GitHub Projesi</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number"><span data-target="500">0</span><span class="stat-suffix">+</span></div>
@@ -1343,41 +1443,158 @@
         </div>
     </div>
 
-    <!-- GÜNCELLEMELER / CHANGELOG -->
-    <div class="changelog-section">
-        <div class="section-label reveal" style="justify-content: center; width: 100%; display: flex;"><i class="fas fa-bolt"></i> GÜNCELLEMELER</div>
-        <h2 class="section-title reveal" style="text-align: center;">Son Değişiklikler</h2>
-        <p class="section-desc reveal" style="text-align: center; margin: 0 auto 48px;">Ekosistemimizdeki son gelişmeler.</p>
+    <!-- GÜNCELLEMELER / CHANGELOG (GitHub Entegrasyonu) -->
+    <div class="changelog-section" id="updates">
+        <div class="section-label reveal" style="justify-content: center; width: 100%; display: flex;"><i class="fab fa-github"></i> GITHUB GÜNCELLEMELERİ</div>
+        <h2 class="section-title reveal" style="text-align: center;">Son Değişiklikler & Commitler</h2>
+        <p class="section-desc reveal" style="text-align: center; margin: 0 auto 48px;">GitHub profilimizden anlık olarak derlenen son aktiviteler.</p>
 
-        <div class="changelog-list">
+        <div class="changelog-list" id="githubCommitsList">
+            <!-- Statik Başlangıç Verileri (GitHub API dinamik olarak günceller) -->
             <div class="changelog-entry reveal">
-                <span class="changelog-badge new">Yeni</span>
-                <div class="changelog-text">
-                    <h4>SC Kimlik sistemi yayına alındı</h4>
-                    <span>Merkezi kimlik doğrulama aktif</span>
-                </div>
+                <a href="https://github.com/suleyman2180/serup-site/commit/47b1ba3" target="_blank" class="changelog-link">
+                    <span class="changelog-badge update">serup-site</span>
+                    <div class="changelog-text">
+                        <h4>Logo eklendi, favicon yapıldı, sayaçlar ve yol haritası eklendi</h4>
+                        <span>serup-site &bull; master</span>
+                    </div>
+                    <div class="changelog-meta"><i class="far fa-clock"></i> Bugün</div>
+                </a>
             </div>
             <div class="changelog-entry reveal">
-                <span class="changelog-badge update">Güncelleme</span>
-                <div class="changelog-text">
-                    <h4>SSCore v0.6 çıktı</h4>
-                    <span>Yeni analiz araçları ve IDE iyileştirmeleri</span>
-                </div>
+                <a href="https://github.com/suleyman2180/serup-site" target="_blank" class="changelog-link">
+                    <span class="changelog-badge new">SC Kimlik</span>
+                    <div class="changelog-text">
+                        <h4>SC Kimlik yayında olarak güncellendi, GitHub linki eklendi</h4>
+                        <span>serup-site &bull; master</span>
+                    </div>
+                    <div class="changelog-meta"><i class="far fa-clock"></i> Bugün</div>
+                </a>
             </div>
             <div class="changelog-entry reveal">
-                <span class="changelog-badge new">Yeni</span>
-                <div class="changelog-text">
-                    <h4>Sunday AI Android uygulaması eklendi</h4>
-                    <span>Mobil asistan olarak APK ile indirilebilir</span>
-                </div>
+                <a href="https://github.com/suleyman2180/library-manager" target="_blank" class="changelog-link">
+                    <span class="changelog-badge fix">library-manager</span>
+                    <div class="changelog-text">
+                        <h4>Fix Fihrist book and member editing actions & duplicate handlers</h4>
+                        <span>library-manager &bull; main</span>
+                    </div>
+                    <div class="changelog-meta"><i class="far fa-clock"></i> 26 Eki</div>
+                </a>
             </div>
             <div class="changelog-entry reveal">
-                <span class="changelog-badge fix">Düzeltme</span>
-                <div class="changelog-text">
-                    <h4>Sunday AI yanıt hızı iyileştirildi</h4>
-                    <span>Performans optimizasyonları uygulandı</span>
-                </div>
+                <a href="https://github.com/suleyman2180/enderun-site" target="_blank" class="changelog-link">
+                    <span class="changelog-badge update">enderun-site</span>
+                    <div class="changelog-text">
+                        <h4>Show closed registration notice and blur application form</h4>
+                        <span>enderun-site &bull; main</span>
+                    </div>
+                    <div class="changelog-meta"><i class="far fa-clock"></i> 27 Eki</div>
+                </a>
             </div>
+            <div class="changelog-entry reveal">
+                <a href="https://github.com/suleyman2180/ssc" target="_blank" class="changelog-link">
+                    <span class="changelog-badge new">SSCore</span>
+                    <div class="changelog-text">
+                        <h4>SSCore işletim sistemi ve altyapı kod tabanı oluşturuldu</h4>
+                        <span>ssc &bull; master</span>
+                    </div>
+                    <div class="changelog-meta"><i class="far fa-clock"></i> 17 Eki</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GITHUB AKTİF PROJELER BÖLÜMÜ -->
+    <div class="section" id="github-projects">
+        <div class="section-label reveal" style="justify-content: center; width: 100%; display: flex;"><i class="fab fa-github-alt"></i> AÇIK KAYNAK</div>
+        <h2 class="section-title reveal" style="text-align: center;">Aktif GitHub Projelerimiz</h2>
+        <p class="section-desc reveal" style="text-align: center; margin: 0 auto 30px;">suleyman2180 deposundaki açık kaynak depolarımız.</p>
+
+        <div class="github-repos-grid" id="githubReposList">
+            <!-- Statik Yedek Kartlar (JS API ile otomatik tazelenir) -->
+            <a href="https://github.com/suleyman2180/serup-site" target="_blank" class="repo-card reveal">
+                <div>
+                    <div class="repo-card-header">
+                        <span class="repo-name"><i class="fas fa-book-bookmark"></i> serup-site</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                    </div>
+                    <p class="repo-desc">SerUP | Gelişmiş Yazılım Ekosistemi & Dijital Çözümler resmi web platformu.</p>
+                </div>
+                <div class="repo-footer">
+                    <span class="repo-lang"><span class="lang-dot" style="background:#e34c26;"></span> HTML</span>
+                    <span><i class="far fa-star"></i> 0</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/suleyman2180/library-manager" target="_blank" class="repo-card reveal reveal-delay-1">
+                <div>
+                    <div class="repo-card-header">
+                        <span class="repo-name"><i class="fas fa-book-bookmark"></i> library-manager</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                    </div>
+                    <p class="repo-desc">Kütüphane, fihrist kayıt yönetimi ve üye takip sistemi.</p>
+                </div>
+                <div class="repo-footer">
+                    <span class="repo-lang"><span class="lang-dot" style="background:#f1e05a;"></span> JavaScript</span>
+                    <span><i class="far fa-star"></i> 1</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/suleyman2180/raspberry-pi-monitor" target="_blank" class="repo-card reveal reveal-delay-2">
+                <div>
+                    <div class="repo-card-header">
+                        <span class="repo-name"><i class="fas fa-book-bookmark"></i> raspberry-pi-monitor</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                    </div>
+                    <p class="repo-desc">Hafif tek dosyalı Raspberry Pi sistem ve Docker izleme dashboardu.</p>
+                </div>
+                <div class="repo-footer">
+                    <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span> Python</span>
+                    <span><i class="far fa-star"></i> 0</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/suleyman2180/repo-manager" target="_blank" class="repo-card reveal">
+                <div>
+                    <div class="repo-card-header">
+                        <span class="repo-name"><i class="fas fa-book-bookmark"></i> repo-manager</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                    </div>
+                    <p class="repo-desc">Git depolarını otomatik ve verimli biçimde yönetmeye yardımcı araç.</p>
+                </div>
+                <div class="repo-footer">
+                    <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span> Python</span>
+                    <span><i class="far fa-star"></i> 1</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/suleyman2180/ssc" target="_blank" class="repo-card reveal reveal-delay-1">
+                <div>
+                    <div class="repo-card-header">
+                        <span class="repo-name"><i class="fas fa-book-bookmark"></i> ssc</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                    </div>
+                    <p class="repo-desc">SSCore işletim sistemi temel araçları ve geliştirici kütüphaneleri.</p>
+                </div>
+                <div class="repo-footer">
+                    <span class="repo-lang"><span class="lang-dot" style="background:#a78bfa;"></span> Sistem</span>
+                    <span><i class="far fa-star"></i> 0</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/suleyman2180/network-test" target="_blank" class="repo-card reveal reveal-delay-2">
+                <div>
+                    <div class="repo-card-header">
+                        <span class="repo-name"><i class="fas fa-book-bookmark"></i> network-test</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                    </div>
+                    <p class="repo-desc">Debian ve Linux dağıtımlarında ping ile otomatik ağ ve internet testi.</p>
+                </div>
+                <div class="repo-footer">
+                    <span class="repo-lang"><span class="lang-dot" style="background:#89e051;"></span> Shell</span>
+                    <span><i class="far fa-star"></i> 0</span>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -1684,6 +1901,72 @@
             }, { threshold: 0.3 });
             statsObserver.observe(statsSection);
         }
+
+        // === GITHUB API İLE CANLI PROJE VE COMMİT VERİLERİNİ ÇEKME ===
+        async function fetchGitHubData() {
+            try {
+                // Depoları çek
+                const reposRes = await fetch('https://api.github.com/users/suleyman2180/repos?sort=updated&per_page=6');
+                if (reposRes.ok) {
+                    const repos = await reposRes.json();
+                    const reposListEl = document.getElementById('githubReposList');
+                    if (repos && repos.length > 0 && reposListEl) {
+                        const langColors = {
+                            'HTML': '#e34c26',
+                            'JavaScript': '#f1e05a',
+                            'TypeScript': '#3178c6',
+                            'Python': '#3572A5',
+                            'Shell': '#89e051',
+                            'C': '#555555',
+                            'C++': '#f34b7d'
+                        };
+
+                        reposListEl.innerHTML = repos.map((repo, idx) => {
+                            const lang = repo.language || 'Yazılım';
+                            const color = langColors[lang] || '#a78bfa';
+                            const desc = repo.description || 'SerUP ve açık kaynak yazılım ekosistemi bileşeni.';
+                            const delayClass = idx % 3 === 1 ? 'reveal-delay-1' : (idx % 3 === 2 ? 'reveal-delay-2' : '');
+
+                            return `
+                                <a href="${repo.html_url}" target="_blank" class="repo-card reveal ${delayClass}">
+                                    <div>
+                                        <div class="repo-card-header">
+                                            <span class="repo-name"><i class="fas fa-book-bookmark"></i> ${repo.name}</span>
+                                            <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--accent-light);"></i>
+                                        </div>
+                                        <p class="repo-desc">${desc}</p>
+                                    </div>
+                                    <div class="repo-footer">
+                                        <span class="repo-lang"><span class="lang-dot" style="background:${color};"></span> ${lang}</span>
+                                        <span><i class="far fa-star"></i> ${repo.stargazers_count}</span>
+                                    </div>
+                                </a>
+                            `;
+                        }).join('');
+
+                        // Yeni eklenen kartları observer'a bağla
+                        reposListEl.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+                    }
+                }
+
+                // Profil istatistiklerini çek
+                const userRes = await fetch('https://api.github.com/users/suleyman2180');
+                if (userRes.ok) {
+                    const user = await userRes.json();
+                    const statRepoEl = document.getElementById('statRepoCount');
+                    if (statRepoEl && user.public_repos) {
+                        statRepoEl.setAttribute('data-target', user.public_repos);
+                        if (!animatedStats) {
+                            statRepoEl.textContent = user.public_repos;
+                        }
+                    }
+                }
+            } catch (err) {
+                console.log('GitHub API fallback statik içerik devrede:', err);
+            }
+        }
+
+        fetchGitHubData();
     </script>
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
