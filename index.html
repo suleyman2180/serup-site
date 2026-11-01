@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta name="google-site-verification" content="lmGepuxCBOsAyfGvXaod1Qm_vOwABdmBQNPHwljST1w" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 11. Benzersiz Meta Başlık & 12. Meta Açıklama -->
+    <title>SerUP | Gelişmiş Yazılım Ekosistemi & Dijital Çözümler</title>
+    <meta name="description" content="SerUP; SC Kimlik, Sunday AI ve SSCore işletim sistemi altyapısıyla yapay zeka ve siber güvenlik odaklı yeni nesil dijital çözümler sunar.">
+    <meta name="keywords" content="SerUP, SC Kimlik, Sunday AI, SSCore, Yazılım, Yapay Zeka, Siber Güvenlik">
+    <meta name="robots" content="index, follow">
+
+    <!-- 13. Sosyal Medya Paylaşım Resimleri (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.serup.com.tr/">
+    <meta property="og:title" content="SerUP | Digital Evolution">
+    <meta property="og:description" content="SC Kimlik ve Sunday AI Altyapısı ile Güçlendirildi. Yarının teknolojilerini bugünden inşa ediyoruz.">
+    <meta property="og:image" content="https://www.serup.com.tr/assets/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        :root {
+            --accent: #6366f1;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --bg: #030712;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 14px 24px;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover { color: var(--text-main); }
+
+        /* 2. Üst Kısma CTA (Giriş Yap Butonu) */
+        .nav-cta {
+            background: var(--accent-gradient);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: 600 !important;
+            transition: 0.3s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 6px;
+            line-height: 0;
+        }
+
+        /* 5. Sayfa İşaret Yolu (Breadcrumb) */
+        .breadcrumb {
+            display: flex;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .badge {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(to bottom, #fff 40%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 36px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .card i.card-icon {
+            font-size: 1.9rem;
+            margin-bottom: 22px;
+            display: block;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-dim);
+        }
+
+        .sunday-status {
+            background: var(--accent-gradient);
+            border-radius: 30px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-content h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        
+        .pulse-btn {
+            background: white;
+            color: var(--accent);
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .pulse-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .coming-soon {
+            font-size: 0.7rem;
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* 7. SSS (Sıkça Sorulan Sorular) Stilleri */
+        .faq-section {
+            margin-top: 120px;
+        }
+        .faq-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding: 0 24px;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 24px 20px 24px;
+        }
+        .faq-item.active i {
+            transform: rotate(180deg);
+        }
+
+        /* 18. Gizlilik Politikası Modalı */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #0f172a;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            max-width: 600px;
+            padding: 30px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-content h3 { margin-bottom: 15px; color: var(--accent); }
+        .modal-content p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 10px; }
+        .close-modal { float: right; cursor: pointer; color: var(--text-main); font-size: 1.2rem; }
+
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                top: 14px;
+                width: 92%;
+                padding: 12px 18px;
+                flex-wrap: wrap;
+                border-radius: 18px;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-links {
+                flex-basis: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+                margin-top: 0;
+            }
+
+            .nav-links.open {
+                max-height: 350px;
+                opacity: 1;
+                margin-top: 14px;
+                border-top: 1px solid var(--glass-border);
+                padding-top: 10px;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 8px 4px;
+                font-size: 1rem;
+            }
+
+            .nav-cta {
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .hero { padding: 0 24px; }
+            .hero p { font-size: 1.05rem; line-height: 1.6; }
+            .container { padding: 80px 18px; }
+            .card { padding: 34px 28px; }
+            .sunday-status {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding: 40px 30px;
+                gap: 30px;
+            }
+            .sunday-status .status-content h2 { font-size: 1.8rem; }
+            .sunday-status .status-icon { display: none; }
+            .pulse-btn, .cta-btn { width: 100%; justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mesh-gradient"></div>
+
+    <nav>
+        <div class="logo">SerUP</div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#projects">Servisler</a></li>
+            <li><a href="#sscore">SSCore</a></li>
+            <li><a href="#sunday">SUNDAY</a></li>
+            <li><a href="#faq">SSS</a></li>
+            <!-- 2. Üst Kısma CTA (SC Kimlik Girişi) -->
+            <li><a href="#projects" class="nav-cta"><i class="fas fa-user-shield"></i> SC Kimlik Giriş</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <!-- 5. Sayfa İşaret Yolu (Breadcrumb) -->
+        <div class="breadcrumb">
+            <a href="#home">SerUP Ekosistemi</a> / <span>Genel Bakış</span>
+        </div>
+        
+        <div class="badge" data-aos="fade-down">Next-Gen Software Lab</div>
+        <h1 data-aos="fade-up">Dijital Evreni<br>Yeniden Tasarlıyoruz.</h1>
+        <p data-aos="fade-up" data-aos-delay="200">SerUP, yapay zeka ve siber güvenlik odaklı yazılım mimarileriyle yarının teknolojilerini bugünden inşa ediyor.</p>
+        <div data-aos="fade-up" data-aos-delay="400">
+            <a href="#projects" class="cta-btn">Projeleri İncele</a>
+        </div>
+    </section>
+
+    <div class="container" id="projects">
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <div>
+                    <i class="fas fa-id-card-alt card-icon"></i>
+                    <div class="coming-soon">Yakında</div>
+                    <h3>SC Kimlik</h3>
+                    <p>Tüm SerUP ekosistemine ve bağımsız servislerimize tek tıkla, yüksek güvenlik standartlarında giriş yapın. Merkezi yetkilendirme altyapısı.</p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <!-- 3. İç Linkleme & Mimari Detay -->
+                    <a href="https://drive.google.com/file/d/1yxhkqY4r0pN-LLeC8x8OeRdrhR-e1ZhJ/view?usp=drivesdk" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 600;">
+                        <i class="fas fa-external-link-alt"></i> Kimlik Yapısını İncele
+                    </a>
+                </div>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <i class="fas fa-microchip card-icon"></i>
+                    <h3>Yapay Zeka</h3>
+                    <p>Öğrenen algoritmalar ve Sunday AI altyapı entegrasyonu ile kişisel ve kurumsal verimliliği maksimize edin.</p>
+                </div>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <i class="fas fa-shield-halved card-icon"></i>
+                    <h3>Siber Güvenlik</h3>
+                    <p>Gelişmiş ağ izleme, yerel bulut izolasyonu ve sızma simülasyon araçlarıyla verilerinizi koruma altına alın.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SSCore İşletim Sistemi -->
+        <section id="sscore" style="margin-top: 100px;">
+            <div class="sunday-status" data-aos="zoom-in" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 1px solid var(--glass-border);">
+                <div class="status-content">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="width: 12px; height: 12px; background: #a855f7; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #a855f7;"></span>
+                        <span style="font-weight: 600; font-size: 0.9rem; color: #a855f7;">SSCore v0.6 Yayında</span>
+                    </div>
+                    <h2>SSCore İşletim Sistemi</h2>
+                    <p style="opacity: 0.8; max-width: 500px; margin-bottom: 30px;">Dahili analiz araçları, özel masaüstü özelleştirmeleri ve SerUP IDE ile optimize edilmiş geliştirici deneyimi.</p>
+                    <a href="https://www.serup.com.tr/sscore" class="pulse-btn" style="background: var(--accent-gradient); color: white;">Sistemi Keşfet</a>
+                </div>
+                <div class="status-icon" style="font-size: 100px; opacity: 0.15; color: #a855f7;">
+                    <i class="fas fa-terminal"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sunday AI -->
+        <section id="sunday" style="margin-top: 100px;">
+            <div class="sunday-status" data-aos="zoom-in">
+                <div class="status-content">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="width: 12px; height: 12px; background: #4ade80; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #4ade80;"></span>
+                        <span style="font-weight: 600; font-size: 0.9rem;">SUNDAY AI Aktif</span>
+                    </div>
+                    <h2>Sunday: Kişisel Asistanın</h2>
+                    <p style="opacity: 0.9; max-width: 500px; margin-bottom: 30px;">Sunday artık hem web hem de Android uygulamasıyla emrinde. Sesli komutlar ve modüler servislerle problemleri beraber çözün.</p>
+                    
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="https://www.ai.serup.com.tr" class="pulse-btn">
+                            <i class="fas fa-globe"></i> Web Sürümü
+                        </a>
+                        <a href="https://drive.google.com/file/d/17t5kQ6h5xigiwaTfVk2O9ccqHzrOW4L_/view?usp=drivesdk" target="_blank" class="pulse-btn" style="background: var(--bg); color: white; border: 1px solid var(--glass-border);">
+                            <i class="fab fa-android"></i> Mobil Uygulama
+                        </a>
+                    </div>
+                </div>
+                <div class="status-icon" style="font-size: 100px; opacity: 0.2;">
+                    <i class="fas fa-brain"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Sıkça Sorulan Sorular (5 Adet SSS) -->
+        <section id="faq" class="faq-section" data-aos="fade-up">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px;">Sıkça Sorulan Sorular</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>1. SerUP ekosistemi nedir ve hangi hizmetleri sunar?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>SerUP; SC Kimlik, Sunday AI ve SSCore gibi geliştirdiğimiz yazılımları ve projeleri tek bir çatı altında toplayan bağımsız bir dijital teknoloji girişimidir.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>2. SC Kimlik hesabı nedir, ne işe yarar?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>SC Kimlik, SerUP bünyesindeki tüm web ve mobil yazılımlara (Sunday AI, SSCore servisleri vb.) tek bir hesap üzerinden güvenli bir şekilde erişmenizi sağlayan merkezi kimlik doğrulama sistemidir.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>3. Sunday AI nasıl kullanılır?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sunday AI'ı doğrudan web tarayıcınız üzerinden tarayıcı sürümüyle kullanabilir veya Android cihazınıza APK dosyasını indirerek mobil asistan olarak çalıştırabilirsiniz.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>4. SSCore İşletim Sistemi hangi altyapıyı kullanır?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>SSCore, geliştiriciler ve siber güvenlik meraklıları için optimize edilmiş, özel masaüstü ve analiz araçlarıyla donatılmış Ubuntu tabanlı özel bir dağıtımdır.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>5. Kullanıcı verilerim nasıl korunuyor?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Tüm veri iletişimi uçtan uca şifrelenir. Gizliliğinize önem veriyoruz ve verileriniz üçüncü taraflarla asla paylaşılmaz. Detaylar için Gizlilik Politikamızı inceleyebilirsiniz.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 18. Gizlilik Politikası Modalı -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>Gizlilik Politikası</h3>
+            <p>SerUP ekosistemi olarak kullanıcılarımızın gizliliğine ve veri güvenliğine büyük önem veriyoruz.</p>
+            <p><strong>Toplanan Veriler:</strong> SC Kimlik ve Sunday AI kullanımı sırasında yalnızca hesabınızın güvenliğini sağlamak ve hizmet kalitesini artırmak için gerekli temel veriler işlenir.</p>
+            <p><strong>Veri Güvenliği:</strong> Verileriniz gelişmiş şifreleme algoritmaları ile korunan sunucularda saklanır ve üçüncü taraflarla paylaşılmaz.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p style="font-weight: 600; color: white;">SerUP &copy; 2026</p>
+        <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 10px;">
+            SC Kimlik ve Sunday AI Altyapısı ile Güçlendirildi | 
+            <a href="#" id="openPrivacy" style="color: var(--accent); text-decoration: none;">Gizlilik Politikası</a>
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Navbar Mobil Menü Kontrolü
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.innerHTML = isOpen ? '<i class="fas fa-xmark"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', false);
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // SSS Akordeon Kontrolü
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Gizlilik Politikası Modal Kontrolü
+        const modal = document.getElementById('privacyModal');
+        const openBtn = document.getElementById('openPrivacy');
+        const closeBtn = document.getElementById('closeModal');
+
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    </script>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ac77827da9b6b34c61283a0/1k4diqn3b';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
